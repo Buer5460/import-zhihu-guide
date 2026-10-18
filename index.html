@@ -3,89 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>亚马逊FBA到仓成本怎么算？三处漏算拆解 | 免费测算</title>
-<meta name="description" content="FOB到真实到仓成本差30%-60%。拆解三处漏算：到仓成本、销售变动费用、平台预留金与汇损。附盈亏平衡售价公式与免费测算器。">
+<title>别再只算采购价了！FBA真实成本差30%-60% | 免费测算</title>
+<meta name="description" content="姐妹们别只算采购价+头程+FBA了。FOB到真实到仓成本差30%-60%，三处漏算一次拆清：到仓成本、销售变动费用、平台预留金与汇损。附盈亏平衡售价公式和免费测算器。">
 <style>
 :root{--ink:#141a20;--sub:#5b6774;--line:#e2e6ea;--accent:#c8452f;--accent2:#1f6f5c;--warn:#b8860b;--card:#f7f8fa}
 *{box-sizing:border-box}
 body{margin:0;background:#fff;color:var(--ink);font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.78}
-.wrap{max-width:760px;margin:0 auto;padding:34px 20px 66px}
-header{border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:28px}
-.kick{font-size:11.5px;letter-spacing:.14em;color:var(--accent);font-weight:700;margin-bottom:9px}
-h1{font-size:27px;line-height:1.3;margin:0 0 10px;letter-spacing:-.4px}
+.wrap{max-width:720px;margin:0 auto;padding:30px 20px 60px}
+header{border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:24px}
+.kick{font-size:11.5px;letter-spacing:.14em;color:var(--accent);font-weight:700;margin-bottom:8px}
+h1{font-size:26px;line-height:1.32;margin:0 0 10px;letter-spacing:-.4px}
 .meta{font-size:12.5px;color:var(--sub)}
-h2{font-size:19px;margin:32px 0 13px;padding-bottom:8px;border-bottom:2px solid var(--line)}
-h3{font-size:16px;margin:20px 0 7px;color:#2b3540}
-p{margin:0 0 13px}
-.lead{font-size:16px}
-pre{background:#f6f8fa;border:1px solid var(--line);border-radius:6px;padding:13px 15px;
-  overflow-x:auto;font-size:13.5px;line-height:1.62;margin:0 0 15px}
+p{margin:0 0 12px}
+.hook{font-size:17px;font-weight:700;line-height:1.6;margin:0 0 14px}
+.card{background:var(--card);border-radius:10px;padding:14px 16px;margin:14px 0;font-size:14.5px}
+.num{display:flex;align-items:baseline;gap:10px;margin:16px 0}
+.num .badge{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.num .body{flex:1 1 auto}
+.num .t{font-weight:800;font-size:16px;margin-bottom:3px}
+h2{font-size:18px;margin:26px 0 10px}
+pre{background:#f6f8fa;border:1px solid var(--line);border-radius:8px;padding:13px 15px;
+  overflow-x:auto;font-size:13.5px;line-height:1.62;margin:12px 0}
 code{font-family:ui-monospace,Menlo,monospace}
-ul,ol{margin:0 0 15px;padding-left:21px}
-li{margin-bottom:7px}
-.quote{margin:0 0 16px;padding:11px 15px;background:var(--card);
-  border-left:3px solid var(--sub);font-size:14px;color:#3a4652;border-radius:0 6px 6px 0}
+ul{margin:0 0 12px;padding-left:20px}
+li{margin-bottom:6px}
 .box{background:#fdf8ec;border:1px solid #f0e2be;border-left:4px solid var(--warn);
-  border-radius:6px;padding:13px 16px;margin:16px 0;font-size:13.5px}
-.box .h{font-weight:700;color:var(--warn);margin-bottom:5px}
+  border-radius:8px;padding:12px 15px;margin:14px 0;font-size:13.5px}
+.box .h{font-weight:800;color:var(--warn);margin-bottom:4px}
 .cta{background:linear-gradient(180deg,#fff,#fbf4f2);border:1px solid #f0d5cf;
-  border-left:5px solid var(--accent);border-radius:8px;padding:18px 21px;margin:26px 0}
-.cta .h{font-weight:800;color:var(--accent);font-size:14px;margin-bottom:7px}
+  border-left:5px solid var(--accent);border-radius:10px;padding:18px 20px;margin:24px 0}
+.cta .h{font-weight:800;color:var(--accent);font-size:14.5px;margin-bottom:6px}
 .btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
   border-radius:6px;padding:11px 22px;font-weight:700;font-size:15px;margin-top:9px}
+.tags{margin:20px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.tags li{background:#f2f5f8;border:1px solid var(--line);border-radius:999px;
+  padding:5px 12px;font-size:12.5px;color:#3a4652;margin:0}
 .disc{font-size:12px;color:var(--sub);border-top:1px solid var(--line);
-  padding-top:15px;margin-top:32px;line-height:1.72}
-@media(max-width:640px){.wrap{padding:22px 15px 48px}h1{font-size:22px}}
+  padding-top:14px;margin-top:28px;line-height:1.72}
+@media(max-width:640px){.wrap{padding:20px 15px 44px}h1{font-size:21px}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <header>
-  <div class="kick">知乎 · 跨境成本</div>
-  <h1>亚马逊 FBA 到仓成本怎么算？<br>三处漏算拆解</h1>
+  <div class="kick">小红书 · 跨境成本</div>
+  <h1>别再只算采购价了！<br>FBA 真实成本差 30%-60%</h1>
   <div class="meta">面向从中国/东南亚采购销往美国的跨境卖家 · 2026-10-18</div>
 </header>
 
-<p class="lead">先说结论：<strong>你大概率不是算错了一项，而是把三类钱混在了一个口径里。</strong></p>
+<p class="hook">😭 姐妹们，我以前也是"售价减成本"一算就开心，直到对账发现少了 5000。</p>
 
-<p>很多卖家的算法是：</p>
-
-<div class="quote">采购价 + 头程 + FBA 费，售价一减，剩下就是赚的。</div>
-
-<p>这个算法只覆盖了<strong>货物到仓之前</strong>的成本。亚马逊实际扣的钱、平台产生的费用、以及资金占用成本，都不在这三项里。所以才会出现"我以为赚 2 万，实际到账 1.5 万"。</p>
-
-<h2>第一处：到仓成本本身就没算全</h2>
-
-<p>FOB 价到真实到仓成本，通常差 <strong>30%–60%</strong>。下面这些是最容易被漏掉的：</p>
-
-<ul>
-<li><strong>MPF 商品处理费</strong>——有最低费和上限，<strong>别按每个 SKU 重复套最低费</strong></li>
-<li><strong>HMF 港口维护费</strong>——仅海运</li>
-<li><strong>报关行费用</strong>——$150–400/票。卖 100 件就是 $1.5/件</li>
-<li><strong>关税保证金</strong>（Customs Bond）</li>
-<li><strong>内陆运输 + 仓储</strong></li>
-<li><strong>Section 301 附加层</strong>——中国原产多数品类适用，不只基础税率</li>
-</ul>
-
-<div class="box">
-  <div class="h">算给你看</div>
-  一票货 $150 报关费，卖 100 件 = 每件 $1.5。没算进去，就是每件白亏 $1.5。
+<div class="card">
+不是你算错了一项，<strong>是你把三类钱混进了一个口径里</strong>。
 </div>
 
-<h2>第二处：销售端费用没归集</h2>
+<p>我们最常用的算法 👇</p>
 
-<p>广告费、仓储费、退货、FBA 配送——这些是<strong>销售变动费用</strong>，和进口成本是两码事，但直接影响利润。</p>
+<div class="card">采购价 + 头程 + FBA 费，售价一减 = 赚到的</div>
 
-<p>分开记，才能算出一个关键数字：</p>
+<p>但它只覆盖了<strong>货物到仓之前</strong>。亚马逊实际扣的钱、平台费用、资金占用成本，一项都不在里面。</p>
 
-<pre><code>盈亏平衡售价 = (到仓成本 + 单件固定销售费用) / (1 - 销售费用率)</code></pre>
+<p>所以才会："我以为赚 2 万，实际到账 1.5 万" 💸</p>
 
-<p><strong>低于这个价，卖一件亏一件。</strong>很多人不敢提价，是因为不知道这条线在哪。</p>
+<h2>👇 三处漏算，一个个来</h2>
 
-<h3>完整算例</h3>
+<div class="num">
+  <div class="badge">1</div>
+  <div class="body">
+    <div class="t">到仓成本本身就没算全</div>
+    <p>FOB 价 → 真实到仓成本，通常差 <strong>30%–60%</strong>。最容易漏的 👇</p>
+    <ul>
+      <li><strong>MPF 商品处理费</strong>——有最低费和上限，<strong>别按每个 SKU 重复套最低费</strong></li>
+      <li><strong>HMF 港口维护费</strong>——仅海运</li>
+      <li><strong>报关行费用</strong>——$150–400/票</li>
+      <li><strong>关税保证金</strong>（Customs Bond）</li>
+      <li><strong>内陆运输 + 仓储</strong></li>
+      <li><strong>Section 301 附加层</strong>——中国原产多数品类适用，不只基础税率</li>
+    </ul>
+    <div class="box">
+      <div class="h">算给你看</div>
+      一票货 $150 报关费，卖 100 件 = 每件 $1.5。没算进去，就是<strong>每件白亏 $1.5</strong>。
+    </div>
+  </div>
+</div>
 
-<pre><code>采购 8.00
+<div class="num">
+  <div class="badge">2</div>
+  <div class="body">
+    <div class="t">销售端费用没归集</div>
+    <p>广告费、仓储费、退货、FBA 配送——这些是<strong>销售变动费用</strong>，和进口成本两码事，但直接影响利润。</p>
+    <p>分开记，才算得出这条命线 👇</p>
+    <pre><code>盈亏平衡售价 = (到仓成本 + 单件固定销售费用) / (1 - 销售费用率)</code></pre>
+    <p><strong>低于这个价，卖一件亏一件。</strong>很多人不敢提价，是因为根本不知道这条线在哪。</p>
+    <p>完整算例 ⬇️</p>
+    <pre><code>采购 8.00
 运保 1.20
 关税 2.00
 清关 0.80
@@ -99,46 +112,58 @@ li{margin-bottom:7px}
 关税涨到 2.80 后：
 到仓 12.80 → 贡献利润 2.10 → 利润率 10.55%
 卖出 1000 件 = 少赚 800.00</code></pre>
-
-<h2>第三处：预留金和汇损</h2>
-
-<p>坦白说，<strong>预留金（Account Level Reserve）和汇损属于亚马逊后台结算侧数据</strong>，不是进口环节能算出来的。</p>
-
-<p>所以正确做法是分两条线：</p>
-<ol>
-<li><strong>进口到仓 + 盈亏平衡</strong> → 用成本测算工具</li>
-<li><strong>平台对账</strong> → 导 Settlement Report，或用 ERP 拉</li>
-</ol>
-
-<div class="box">
-  <div class="h">根因</div>
-  很多人"账算不平"不是算错，而是<strong>把两类不同口径的数据混在一起</strong>。
+  </div>
 </div>
 
-<h2>顺带：比算错更危险的是编码</h2>
+<div class="num">
+  <div class="badge">3</div>
+  <div class="body">
+    <div class="t">预留金和汇损</div>
+    <p>坦白说，<strong>预留金（Account Level Reserve）和汇损属于亚马逊后台结算侧数据</strong>，不是进口环节能算出来的。</p>
+    <p>正确做法是分两条线 ✅</p>
+    <ul>
+      <li><strong>进口到仓 + 盈亏平衡</strong> → 用成本测算工具</li>
+      <li><strong>平台对账</strong> → 导 Settlement Report，或用 ERP 拉</li>
+    </ul>
+    <div class="box">
+      <div class="h">根因</div>
+      很多人"账算不平"不是算错，而是<strong>把两类不同口径的数据混在一起</strong>。
+    </div>
+  </div>
+</div>
+
+<h2>⚠️ 比算错更危险的是编码</h2>
 
 <p>供应商或货代给的 HTS 编码，是最大的错误来源。有卖家 1,200 个 SKU 全用采购代理给的编码，跑了一遍发现 <strong>38% 被建议改用不同的 10 位码</strong>。</p>
 
 <p>FBA 卖家是 <strong>Importer of Record</strong>——罚款落在你自己的 EIN 上，亚马逊不帮你扛。CBP 重大过失最高 <strong>4 倍未付税额</strong>，审查可追溯五年。</p>
 
-<p>归类建议必须由<strong>持牌报关人</strong>确认。任何工具都不能替你做这件事。
+<p>归类建议必须由<strong>持牌报关人</strong>确认。任何工具都不能替你做这件事。</p>
 
----
+<h2>🛠 我现在在用的工具</h2>
 
-## 工具
+<p>一个免费的<strong>单商品测算器</strong>，不用注册，输入采购价和运费就能算出 👇</p>
 
-我在做一个免费的<strong>单商品测算器</strong>，不用注册，输入采购价和运费就能算出：
+<ul>
+<li>✅ 单件到仓成本</li>
+<li>✅ 到仓价 vs FOB 的真实涨幅</li>
+<li>✅ 盈亏平衡售价</li>
+<li>✅ 目标利润率对应售价</li>
+</ul>
 
-- 单件到仓成本
-- 到仓价 vs FOB 的真实涨幅
-- 盈亏平衡售价
-- 目标利润率对应售价
+<p>它最戳我的一点：会<strong>把你没确认的成本项单独列出来</strong>（MPF、HMF、附加税层），不会把未知税费当 0 糊弄你。</p>
 
-它会把你<strong>没确认的成本项单独列出来</strong>（MPF、HMF、附加税层），不会把未知税费当 0 糊弄你。
+<div class="cta">
+  <div class="h">免费测算，不用注册 →</div>
+  输入采购价 + 运费，30 秒看到真实的到仓成本和盈亏平衡售价。
+  <br><a class="btn" href="https://buer5460.github.io/import-cost-calculator/?utm_source=xiaohongshu&utm_medium=content&utm_campaign=profit-miscalc">免费测算 →</a>
+</div>
 
-<a href="https://buer5460.github.io/import-cost-calculator/?utm_source=zhihu&utm_medium=content&utm_campaign=profit-miscalc">免费测算 →</a>
+<p><strong>💬 你们现在是怎么算到仓成本的？</strong>评论区说说你的算法，我看看是不是也漏了这几项～</p>
 
----
+<ul class="tags">
+<li>#跨境电商</li><li>#亚马逊FBA</li><li>#进口成本</li><li>#到仓成本</li><li>#利润核算</li><li>#跨境卖家</li><li>#关税</li><li>#盈亏平衡</li>
+</ul>
 
 <div class="disc">
   <strong>数据来源与边界：</strong>FOB 到仓 30%–60% 涨幅、报关费 $150–400、保险 0.3%–1% 引自 Ship4wd《Common Importing Mistakes SMBs Make》；38% 案例、4 倍罚则、IOR 责任引自 Ecommerce Times（2026-06，引 NCBFRA 2026-05 数据）；算例为合成测试样例，<strong>不代表任何商品实际税率</strong>。<br><br>
